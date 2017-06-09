@@ -82,3 +82,25 @@ declarations: [
 ```
 
 - module의 `declarations` 배열에는 module에 속할 component, pipe, directive가 포함된다.
+
+## 5. Services
+
+`@Injectable()`
+
+- TypeScript에게 Angular가 이 service에게 의존성을 주입해야할 수 있다는 메타데이터를 방출한다.
+
+- 의존성이 없더라도 기본적으로 명시하는 것을 스타일가이드는 추천.
+
+- `@Component`는 `@Injectable`의 서브타입으로 component는 따로 명시 안해줘도 됨.
+
+`component에 주입`
+
+1. component 클래스에 private 프로퍼티를 정의한 생성자를 추가.
+
+2. component의 providers 메타데이터를 추가.
+
+`ngOnInit` : 라이프사이클 훅 : component의 생성시에 호출.
+
+- Angular는 component, directive의 라이프사이클에 대한 interface를 제공.
+
+- `OnInit` interface의 `ngOnInit(): void`.
