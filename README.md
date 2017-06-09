@@ -93,7 +93,7 @@ declarations: [
 
 - `@Component`는 `@Injectable`의 서브타입으로 component는 따로 명시 안해줘도 됨.
 
-`component에 주입`
+`component에 service 주입`
 
 1. component 클래스에 private 프로퍼티를 정의한 생성자를 추가.
 
