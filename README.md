@@ -97,10 +97,64 @@ declarations: [
 
 1. component 클래스에 private 프로퍼티를 정의한 생성자를 추가.
 
-2. component의 providers 메타데이터를 추가.
+2. @component에 providers 메타데이터를 추가.
 
 `ngOnInit` : 라이프사이클 훅 : component의 생성시에 호출.
 
 - Angular는 component, directive의 라이프사이클에 대한 interface를 제공.
 
 - `OnInit` interface의 `ngOnInit(): void`.
+
+## 6. Routing
+
+`@NgModule({providers: []})`
+
+- 여러 뷰에서 서비스가 필요하다면 @NgModule에 providers에 이용할 서비스를 넣는다. 싱글톤 인스턴스.
+
+`RouterModule`
+
+- 라우팅을 위한 모듈
+
+1. `<base href="/">` 설정
+
+```js
+RouterModule.forRoot([
+  {
+    path: 'heroes',
+    component: HeroesComponent
+  }
+])
+```
+2. route 설정
+
+    - `RouterModule.forRoot()`을 통해 route 정의 설정.
+
+    - `path` : router가 매칭할 경로
+
+    - `component` : router가 만들어야 할 component
+
+3. `<router-outlet>`
+
+- router가 route에 맞는 component를 보여주는 곳.
+
+4. `<a routerLink="/heroes">`
+
+- 사용자가 링크를 클릭했을 때 router에게 어디로 navigate 해야하는지 알려준다.
+
+*`router component`*
+
+- router에 붙어지고, 라우팅 된 뷰를 보여주는 component를 *router component* 라 칭함.
+
+`parameterized route`
+
+- `path: 'detail/:id'` : `:`로 파라미터 표현.
+
+- `ActivatedRoute.params`에 정보가 들어있다. (id : "13")
+
+`pipe`
+
+```html
+{{selectedHero.name | uppercase}} is my hero
+```
+
+- 템플릿에 보여질 값을 변화함.
